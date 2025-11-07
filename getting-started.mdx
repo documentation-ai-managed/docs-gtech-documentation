@@ -1,0 +1,101 @@
+---
+title: Getting Started
+description: Step-by-step guide to set up and begin using GTECH Documentation
+---
+
+## Initial Setup
+
+You begin your journey with GTECH Documentation by creating an account and configuring your first workspace. This platform empowers you to build a robust documentation hub tailored to your project's needs. Follow these steps to get operational quickly and start organizing your content.
+
+<Steps>
+  <Step title="Account Creation" icon="user">
+    Visit the signup page and provide your email and password.
+    ```javascript
+    // Simulated signup process
+    const userData = {
+      email: 'user@example.com',
+      password: 'securepass123'
+    };
+    const response = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData)
+    });
+    const user = await response.json();
+    ```
+  </Step>
+  <Step title="Workspace Initialization" icon="home">
+    After logging in, create a new workspace to house your documents.
+    <Callout kind="success">
+      Workspaces support unlimited storage for teams up to 50 members.
+    </Callout>
+  </Step>
+  <Step title="Document Import" icon="upload">
+    Upload your existing Markdown files or create blank documents.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Individual Use" icon="user">
+    For solo developers, focus on personal organization features. You tag documents for easy retrieval and set up personal templates for consistent formatting.
+    ```bash
+    # Command-line tool for initial sync
+    gtech-docs init --workspace "My Solo Project" --token YOUR_TOKEN
+    ```
+  </Tab>
+  <Tab title="Team Collaboration" icon="users">
+    Enable real-time editing and role-based permissions for team members. You assign editors, viewers, and admins to control access levels effectively.
+    <Expandable title="Permission Levels">
+      Admins manage all aspects, including user invitations and billing. Editors modify content but cannot delete workspaces. Viewers access read-only versions.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+<Columns cols={2}>
+  <Card title="Templates Gallery" icon="file-text" href="#">
+    Browse pre-built templates for API docs, user guides, and changelogs to accelerate your setup.
+  </Card>
+  <Card title="Integration Guide" icon="plug" href="#">
+    Connect with tools like GitHub, Slack, and Jira for seamless workflow integration.
+  </Card>
+</Columns>
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // JavaScript SDK example for document creation
+  import { GTechClient } from '@gtech/docs-js';
+  const client = new GTechClient({ token: 'your-token' });
+  const doc = await client.documents.create({
+    title: 'Getting Started Guide',
+    content: '# Welcome\nYour first document.',
+    workspaceId: 'ws-123'
+  });
+  console.log(`Created document ID: ${doc.id}`);
+  ```
+  ```python
+  # Python SDK example
+  from gtech_docs import GTechClient
+  client = GTechClient(token='your-token')
+  doc = client.documents.create(
+      title='Getting Started Guide',
+      content='# Welcome\nYour first document.',
+      workspace_id='ws-123'
+  )
+  print(f'Created document ID: {doc.id}')
+  ```
+</CodeGroup>
+
+<Callout kind="alert">
+  Always validate user inputs to prevent injection attacks when importing external content.
+</Callout>
+
+<ExpandableGroup>
+  <Expandable title="Troubleshooting Common Issues">
+    If you encounter authentication errors, verify your token hasn't expired. Reset it via the settings panel if needed. For upload failures, check file size limits, which cap at `10MB` per document.
+  </Expandable>
+  <Expandable title="Next Steps After Setup">
+    Once configured, explore advanced features like custom domains and analytics dashboards. You monitor document views and edit history to optimize your content strategy.
+  </Expandable>
+</ExpandableGroup>
+
+You now have a functional GTECH Documentation setup. Dive into configuration options to customize further and enhance productivity across your team.

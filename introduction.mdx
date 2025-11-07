@@ -1,0 +1,73 @@
+---
+title: Introduction
+description: Overview of GTECH Documentation and its core capabilities
+---
+
+## Getting Started
+
+You use GTECH Documentation to organize and manage project documentation in a centralized space. It provides tools for creating, editing, and collaborating on docs with version control and search features. Start by setting up your workspace to streamline your documentation workflow.
+
+<Columns cols={3}>
+  <Card title="Easy Organization" icon="folder" href="#">
+    Structure your docs into folders and categories for quick access.
+  </Card>
+  <Card title="Collaboration Tools" icon="users" href="#">
+    Invite team members to edit and review documents in real time.
+  </Card>
+  <Card title="Search and Indexing" icon="search" href="#">
+    Find information quickly with full-text search across all docs.
+  </Card>
+</Columns>
+
+<Steps>
+  <Step title="Create Workspace" icon="home">
+    Sign up and create a new workspace for your project.
+    ```javascript
+    // Example API call to create workspace
+    const response = await fetch('/api/workspaces', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: 'My Project Docs' })
+    });
+    ```
+  </Step>
+  <Step title="Upload Documents" icon="upload">
+    Import existing files or create new ones directly in the platform.
+  </Step>
+  <Step title="Invite Collaborators" icon="mail">
+    Share access with your team via email invitations.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Web" icon="globe">
+    Access GTECH Documentation through any modern web browser. No installation required; simply log in and start managing your docs.
+    ```javascript
+    // Client-side integration example
+    import { GTechDocs } from '@gtech/docs-sdk';
+    const docs = new GTechDocs({ apiKey: 'your-api-key' });
+    const workspace = await docs.createWorkspace('Project Docs');
+    ```
+  </Tab>
+  <Tab title="API" icon="code">
+    Integrate programmatically using our REST API for automated workflows.
+    <Callout kind="tip">
+      Use the API to bulk upload documents from your CI/CD pipeline.
+    </Callout>
+  </Tab>
+</Tabs>
+
+<ExpandableGroup>
+  <Expandable title="What is GTECH Documentation?" default-open="true">
+    GTECH Documentation serves as a comprehensive platform for technical writing and knowledge management. It supports Markdown, MDX, and rich media embeds, making it ideal for developer docs, user guides, and internal wikis. You maintain version history for every document, ensuring traceability and rollback capabilities.
+  </Expandable>
+  <Expandable title="Key Benefits">
+    Benefit from seamless integration with GitHub for version control. You export docs to PDF or HTML for sharing outside the platform. Advanced search includes semantic matching for better relevance.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="info">
+  Ensure your API keys are securely stored in environment variables to protect sensitive data.
+</Callout>
+
+This setup positions you to efficiently manage documentation across your projects. Explore the features page for deeper insights into advanced functionalities like custom themes and analytics.
